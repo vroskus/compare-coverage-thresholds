@@ -4,7 +4,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vroskus/compare-coverage-thresholds"
+    "url": "git+https://github.com/vroskus/compare-coverage-thresholds.git"
   },
   "description": "Tool for comparing code coverage thresholds values in package.json agaist the generated json coverage summary report.",
   "author": "Vilius Roškus",
@@ -16,13 +16,15 @@
     "node": ">=8"
   },
   "bin": {
-    "compare-coverage-thresholds": "./bin/index.js"
+    "compare-coverage-thresholds": "bin/index.js"
   },
   "scripts": {
     "test": "echo 'No tests yet'"
   },
-  "dependencies": {
+  "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/vroskus/compare-coverage-thresholds/issues"
   },
-  "devDependencies": {
-  }
+  "homepage": "https://github.com/vroskus/compare-coverage-thresholds#readme",
+  "main": "bin/index.js"
 }
