@@ -1,4 +1,4 @@
-# check-coverage-thresholds
+# @vroskus/check-coverage-thresholds
 
 Tool for comparing code coverage thresholds values in package.json agaist the generated json coverage summary report.
 
