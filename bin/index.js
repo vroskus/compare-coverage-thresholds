@@ -4,6 +4,10 @@
 
 const fs = require('fs');
 
+const zeroAmount = 0;
+const errorExitCode = 0;
+const successExitCode = 1;
+
 const keys = ['lines', 'statements', 'functions', 'branches'];
 
 const getPackageJson = () => {
@@ -86,7 +90,7 @@ const main = () => {
   if (packageJson === null) {
     console.warning('Unable to get ./package.json');
 
-    return process.exit(0);
+    return process.exit(errorExitCode);
   }
 
   const coverageSummary = getCoverageSummary();
@@ -94,7 +98,7 @@ const main = () => {
   if (coverageSummary === null) {
     console.warning('Unable to get ./coverage/coverage-summary.json');
 
-    return process.exit(0);
+    return process.exit(errorExitCode);
   }
 
   const issues = getThresholdIssues({
@@ -102,7 +106,7 @@ const main = () => {
     packageJson,
   });
 
-  if (issues.length !== 0) {
+  if (issues.length > zeroAmount) {
     issues.forEach((issue) => {
       console.error(
         '\x1b[31m%s\x1b[0m',
@@ -110,10 +114,10 @@ const main = () => {
       );
     });
 
-    return process.exit(1);
+    return process.exit(successExitCode);
   }
 
-  return process.exit(0);
+  return process.exit(errorExitCode);
 };
 
 main();
