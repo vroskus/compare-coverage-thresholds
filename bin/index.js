@@ -8,7 +8,12 @@ const zeroAmount = 0;
 const errorExitCode = 0;
 const successExitCode = 1;
 
-const keys = ['lines', 'statements', 'functions', 'branches'];
+const keys = [
+  'lines',
+  'statements',
+  'functions',
+  'branches',
+];
 
 const getPackageJson = () => {
   const file = fs.readFileSync('./package.json');
@@ -61,7 +66,8 @@ const getThresholdIssues = ({
   coverageSummary,
   packageJson,
 }) => {
-  const issues = [];
+  const issues = [
+  ];
 
   const packageJsonOk = isPackageJsonCompatible({
     packageJson,
